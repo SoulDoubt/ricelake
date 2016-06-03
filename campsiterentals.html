@@ -11,7 +11,11 @@
     <script type="text/javascript" src="./scripts/script.js"></script>
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
-
+    <script>
+    $(document).on('ready', function() {
+        fillYearSpans();
+    });
+    </script>
 </head>
 
 <body>
@@ -55,7 +59,82 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 hidden-xs">
+                <img src="./images/logo.png">
+            </div>
+            <div class="col-md-8">
+                <h2>Campsite Rentals</h2>
+                <div>
+                    <p>Here at <strong>Rice Lake Family Campground</strong> we have 60 sites:</p>
+                </div>
+                <div>
+                    <ul>
+                        <li>50 sites have full service water, electricity, and sewer</li>
+                        <li>10 transient site with partial service water and electricity only</li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Rates for Summer <span class="year-holder"></span></h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Length of Rental</th>
+                                <th class="text-right">Fully Serviced</th>
+                                <th class="text-right">Water and Electricity Only</th>
+                            </tr>
+                            <tr>
+                                <td>Seasonal</td>
+                                <td class="text-right">$2000.00</td>
+                                <td class="text-right">$2000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly</td>
+                                <td class="text-right">$650.00</td>
+                                <td class="text-right">$600.00</td>
+                            </tr>
+                            <tr>
+                                <td>Weekly</td>
+                                <td class="text-right">$250.00</td>
+                                <td class="text-right">$200.00</td>
+                            </tr>
+                            <tr>
+                                <td>Daily</td>
+                                <td class="text-right">$38.00</td>
+                                <td class="text-right">$38.00</td>
+                            </tr>
+                            <tr>
+                                <td>Winter Storage</td>
+                                <td class="text-right">$125.00</td>
+                                <td class="text-right">$125.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Day Use Area &amp; Visitor Passes</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>One or Two / Vehicle</td>
+                                <td>$3.00</td>
+                            </tr>
+                            <tr>
+                                <td>Three or more / Vehicle</td>
+                                <td>$6.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <p>Winter storage will be credited toward the next season Extra fridge/freezer an extra $100.00 for the season<br/> **Plus all applicable taxes.</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,8 +1,10 @@
 
 
-$(document).on("ready", function() {
-    doTWN();
-});
+function fillYearSpans() {
+    var dt = new Date();
+    var year = dt.getFullYear();
+    $(".year-holder").text(year);
+}
 
 // need this defined in global scope for some reason.
 // Thanks, the weather network.

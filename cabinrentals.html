@@ -12,6 +12,11 @@
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
 
+    <script>
+    $(document).on('ready', function(){
+        fillYearSpans();
+    });
+</script>
 </head>
 
 <body>
@@ -55,7 +60,100 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 hidden-xs hidden-sm">
+                <img src="./images/logo.png">
+            </div>
+            <div class="col-md-8">
+                <h2>Cabin Rentals</h2>
+                <div>
+                    <p><strong>Rice Lake Family Campground</strong> has 4 fully furnished cabins:</p>
+                </div>
+                <div>
+                    <ul>
+                        <li>One – 1 bedroom cabin summer only</li>
+                        <li>Two – 2 bedroom cabins opened year round</li>
+                        <li>One – 3 bedrooms cabin </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        Our cabins are perfect for the individuals who want a rustic setting, or accommodations that includes your own kitchen. Each one of our cabins includes bedrooms, bathroom with shower, small kitchenette, and small living room.
+                    </p>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Cabin rates for the year <span class="year-holder"></span> (1 bedroom- based on 2 people )</h4>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Monthly</td>
+                                <td id="1bdr_monthly">$1150.00</td>
+                            </tr>
+                            <tr>
+                                <td>Weekly</td>
+                                <td id="1bdr_weekly">$350.00</td>
+                            </tr>
+                            <tr>
+                                <td>Daily</td>
+                                <td id="1bdr_daily">$75.00</td>
+                            </tr>
+                        </table>
+                        <p>2 Adults – Summer only
+                            <br/> ** $20.00 for additional person maximum of 4 for daily rental
+                            <br/> ** $3.00 for additional person per day for monthly &amp; weekly rate.</p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Cabin rates for the year <span class="year-holder">2016</span> (2 bedroom- based on 4 people)</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Monthly</td>
+                                <td id="2bdr_monthly">$1800.00</td>
+                            </tr>
+                            <tr>
+                                <td>Weekly</td>
+                                <td id="2bdr_weekly">$600.00</td>
+                            </tr>
+                            <tr>
+                                <td>Daily</td>
+                                <td id="2bdr_daily">$75.00</td>
+                            </tr>
+                        </table>
+                        <p>2 Adults &amp; 2 Children – All season rental
+                            <br/> ** $20.00 for additional person maximum of 6 for daily rental
+                            <br/> ** $3.00 for additional person per day for monthly &amp; weekly rate.
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Cabin rates for the year <span class="year-holder">2016</span> (3 bedroom- based on 6 people )</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Monthly</td>
+                                <td id="3bdr_monthly">$2250.00</td>
+                            </tr>
+                            <tr>
+                                <td>Weekly</td>
+                                <td id="3bdr_weekly">$750.00</td>
+                            </tr>
+                        </table>
+                        <p>2 Adults &amp; 4 Children – All season rental
+                            <br/> ** $20.00 for additional person maximum of 8 for daily rental
+                            <br/> **$ 3.00 for additional person per day for monthly &amp; weekly rate.
+                        </p>
+                    </div>
+                </div>
+                For more information please fill out the form on our contact page.
+            </div>
+        </div>
 </body>
 
 </html>
