@@ -11,7 +11,6 @@
     <script type="text/javascript" src="./scripts/script.js"></script>
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
-
 </head>
 
 <body>
@@ -25,8 +24,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <span><img src="./images/logo.png" class="header-logo" >
+                <a class="navbar-brand" href="default.html">
+                    <span><img src="./images/logo.png" class="header-logo" />
                     </span>
                 </a>
                 <a class="navbar-brand" href="#">
@@ -36,7 +35,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="default.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="cabinrentals.html">Cabin Rentals</a></li>
                     <li><a href="campsiterentals.html">Campsite Rentals</a></li>
@@ -75,23 +74,44 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h3 class="text-center">Campsite Rentals</h3> Here at Rice Lake Family Campground we have 60 campsites.
-                <ul>
-                    <li>50 Fullly Serviced</li>
-                    <li>10 Partially Serviced</li>
-                </ul>
-                <p></p>
+                <div class="text-center">
+                    <h3>Campsite Rentals</h3>
+                    <p>Here at
+                        <strong>Rice Lake Family Campground</strong> we have 60 campsites.</p>
+                    <ul class="list-unstyled">
+                        <li>50 Fullly Serviced</li>
+                        <li>10 Partially Serviced</li>
+                        <li class="hidden-xs hidden-sm">&nbsp;</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <a href="campsiterentals.html" class="btn btn-primary btn-default">Learn More</a>
+                </div>
             </div>
             <div class="col-md-4">
-                <h3 class="text-center">Cabin Rentals</h3>
-                <p></p>
+                <div class="text-center">
+                    <h3>Cabin Rentals</h3>
+                    <p><strong>Rice Lake Family Campground</strong> has 4 fully furnished cabins:</p>
+                    <ul class="list-unstyled">
+                        <li>One – 1 bedroom cabin summer only</li>
+                        <li>Two – 2 bedroom cabins opened year round</li>
+                        <li>One – 3 bedrooms cabin</li>
+                    </ul>
+                    <a href="cabinrentals.html" class="btn btn-primary btn-default">Learn More</a>
+                </div>
             </div>
             <div class="col-md-4">
-                <h3 class="text-center">Photo Gallery</h3>
-                <p></p>
+                <div class="text-center">
+                    <h3>Photo Gallery</h3>
+                    <p>See Photos of our Campground taken by our visitors ad campers.</p>
+                    <a href="photogallery.html" class="btn btn-primary btn-default">Check it out</a>
+                </div>
             </div>
         </div>
     </div>
+    <footer class="text-center">
+        &copy;2016 Rice Lake Family Campground - All Rights Reserved.
+    </footer>
 </body>
 
 </html>
