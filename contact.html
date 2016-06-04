@@ -9,8 +9,27 @@
     <script type="text/javascript" src="./scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="./scripts/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHQoFaPd7pKo-d-54rXPAn-F3zCJ6N9js&callback=initMap&libraries=places" async defer></script>
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <script>
+    var map;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 48.678147,
+                lng: -80.809743
+            },
+            zoom: 8
+        });
+        alert(map);
+    }
+
+    $(document).on('ready', function() {
+
+    });
+    </script>
 </head>
 
 <body>
@@ -60,30 +79,70 @@
                 <img src="./images/logo.png">
             </div>
             <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Contact Us</h3>
+                <div>
+                    <ul class="nav nav-tabs">
+                        <li class="active" role="presentation">
+                            <a href="#contact" role="tab" data-toggle="tab" aria-controls="contact">
+                            Contact Us
+                        </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#find" role="tab" data-toggle="tab" aria-controls="find">
+                            Find Us
+                        </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="contact">
+                            <div>
+                                <h4>Come visit us</h4>
+                                <div class="well">
+                                    <address>
+                                        1458 Rice Lake Road
+                                        <br/> Iroquois Falls, ON
+                                        <br/> P0N 1E0
+                                    </address>
+                                </div>
+                            </div>
+                            <h4>Give us a call</h4>
+                            <div class="well">
+                                Summer: (705) 232-5560
+                                <br/>Winter: (705) 232-4606</div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Have us get back to you</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="txtContactName">Name:</label>
+                                            <input type="text" id="txtContactName" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtContactEmail">Email:</label>
+                                            <input type="email" class="form-control" id="txtContactEmail" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtContactPhone">Phone:</label>
+                                            <input type="text" id="txtContactPhone" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtContactComments">Comments / Questions</label>
+                                            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-default">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                        <form action="">
-                            <div class="form-group">
-                                <label for="txtContactName">Name:</label>
-                                <input type="text" id="txtContactName" class="form-control"/>
+                        <div role="tabpanel" class="tab-pane" id="find">
+                            <div>
+                                <div id="map" style="width: 100%; height: 400px;"></div>
                             </div>
-                            <div class="form-group">
-                                <label for="txtContactEmail">Email:</label>
-                                <input type="email" class="form-control" id="txtContactEmail"/>                    
-                            </div>
-                            <div class="form-group">
-                                <label for="txtContactPhone">Phone:</label>
-                                <input type="text" id="txtContactPhone" class="form-control"/>
-                            </div>
-                        </form>    
                         </div>
                     </div>
-                        
                 </div>
             </div>
         </div>
