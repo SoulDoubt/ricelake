@@ -9,11 +9,12 @@
     <script type="text/javascript" src="./scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="./scripts/script.js"></script>
-    <script type="text/javascript" src="./scripts/googlemapsint.min.js"></script>
+    <script type="text/javascript" src="./scripts/googlemapsint.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHQoFaPd7pKo-d-54rXPAn-F3zCJ6N9js&callback=initMap&libraries=places" async defer></script>
 
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
+
     <script>
 
     // because we've placed the map inside a bootstrap tab, we need to 
@@ -28,6 +29,7 @@
     function initMap(){
         GoogleMapsIntegration.initMap();
     }
+
     </script>
 </head>
 
@@ -142,12 +144,14 @@
                                 <div id="map" style="width: 100%; height: 400px;"></div>
                             </div>
                             <div class="well">
-                                <div id="routeDetails"></div>
+                                <div id="routeDetails" class="border-bottom"></div>
+                                <div id="routeInstructions"></div>
                                 <div class="form-group">
                                     <label for="txtDirectionFrom">
-                                        Get Directions
+                                        Get Directions From Wherever you are
                                     </label>
                                     <input type="text" class="form-control" id="txtDirectionFrom" ">
+                                    <br/>
                                     <button class="btn btn-primary " onclick="GoogleMapsIntegration.calculateAndDisplayRoute() ">Get Directions</button>
                                 </div>
                             
