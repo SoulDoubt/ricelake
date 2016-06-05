@@ -9,141 +9,25 @@
     <script type="text/javascript" src="./scripts/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="./scripts/script.js"></script>
+    <script type="text/javascript" src="./scripts/googlemapsint.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHQoFaPd7pKo-d-54rXPAn-F3zCJ6N9js&callback=initMap&libraries=places" async defer></script>
+
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <script>
-    var map;
-
-    var address = "1458 Rice Lake Road, Iroquois Falls, ON";
-    var rlfc; // the google place for rlfc
-    var startLocation; // user entered journey start location
-    var directionService;
-    var directionRenderer;
-
-
-    function initMap() {
-
-        // setup necessary API Services
-        var geocoder = new google.maps.Geocoder();
-        directionService = new google.maps.DirectionsService();
-        directionRenderer = new google.maps.DirectionsRenderer();
-
-        var title = "Rice Lake Family Campground";
-
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {
-                lat: 48.678147,
-                lng: -80.809743
-            },
-            zoom: 16
-        });
-
-        directionRenderer.setMap(map);
-
-        geocoder.geocode({
-            'address': address
-        }, function(result, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                rlfc = result[0].geometry.location;
-                map.setCenter(rlfc);
-
-                var infowindow = new google.maps.InfoWindow({
-                    content: '<b>' + title + '</b><br/>' + address,
-                    size: new google.maps.Size(150, 50)
-                });
-
-                var marker = new google.maps.Marker({
-                    position: rlfc,
-                    map: map,
-                    title: title
-                });
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.open(map, marker);
-                });
-
-                var input = (document.getElementById('txtDirectionFrom'));
-
-                //var types = document.getElementById('type-selector');
-                //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-                //map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
-
-                var autocomplete = new google.maps.places.Autocomplete(input);
-                autocomplete.bindTo('bounds', map);
-
-                //var infowindow = new google.maps.InfoWindow();
-                //var marker = new google.maps.Marker({
-                //    map: map,
-                //    anchorPoint: new google.maps.Point(0, -29)
-                //});
-
-                autocomplete.addListener('place_changed', function() {
-                    //infowindow.close();
-                    //marker.setVisible(false);
-                    startLocation = autocomplete.getPlace();
-                    if (!startLocation.geometry) {
-                        Console.error("Autocomplete's returned place contains no geometry");
-                        return;
-                    }
-                });
-            }
-        });
-    }
 
     // because we've placed the map inside a bootstrap tab, we need to 
     // force a resize event when the tab is shown for the map to 
     // render completely. Not sure who's bug this is
     $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function(e) {
         if ($(this).attr('id') === "tabFind") {
-            forceResizeMap();
+            GoogleMapsIntegration.forceResizeMap();
         }
     });
 
-    function forceResizeMap() {
-        google.maps.event.trigger(map, 'resize');
-        map.setZoom(map.getZoom());
+    function initMap(){
+        GoogleMapsIntegration.initMap();
     }
-
-    function calculateAndDisplayRoute() {
-        if (startLocation && directionService && directionRenderer) {
-            directionService.route({
-                origin: startLocation.geometry.location,
-                destination: rlfc,
-                travelMode: google.maps.TravelMode.DRIVING
-            }, function(response, status) {
-                if (status === google.maps.DirectionsStatus.OK) {
-                    directionRenderer.setDirections(response);
-                    if (response.routes) {
-                        printRouteDetails(response.routes[0]);
-                    }
-                } else {
-                    window.alert('Directions request failed due to ' + status);
-                }
-            });
-        }
-    }
-
-    function printRouteDetails(route) {
-        if (route.legs) {
-            var leg = route.legs[0];
-            var htmlstring = "";
-            var div = $("#routeDetails");
-            htmlstring += "Distance:&nbsp;" + leg.distance.text + "<br/>Time:&nbsp;" + leg.duration.text;
-
-            var steps = leg.steps;
-            for (var i = 0; i < steps.length; i++){
-                var step = steps[i];
-                htmlstring += "<br/>" + step.instructions;
-            }
-
-            div.html(htmlstring);
-        }
-    }
-
-    $(document).on('ready', function() {
-
-    });
     </script>
 </head>
 
@@ -258,13 +142,13 @@
                                 <div id="map" style="width: 100%; height: 400px;"></div>
                             </div>
                             <div class="well">
-                            <div id="routeDetails"></div>
+                                <div id="routeDetails"></div>
                                 <div class="form-group">
                                     <label for="txtDirectionFrom">
                                         Get Directions
                                     </label>
                                     <input type="text" class="form-control" id="txtDirectionFrom" ">
-                                    <button class="btn btn-primary " onclick="calculateAndDisplayRoute() ">Get Directions</button>
+                                    <button class="btn btn-primary " onclick="GoogleMapsIntegration.calculateAndDisplayRoute() ">Get Directions</button>
                                 </div>
                             
                             </div>
