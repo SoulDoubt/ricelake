@@ -11,25 +11,25 @@
     <script type="text/javascript" src="./scripts/script.js"></script>
     <script type="text/javascript" src="./scripts/googlemapsint.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHQoFaPd7pKo-d-54rXPAn-F3zCJ6N9js&callback=initMap&libraries=places" async defer></script>
-
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
-
     <script>
-
+    var mapInitialized = false;
     // because we've placed the map inside a bootstrap tab, we need to 
     // force a resize event when the tab is shown for the map to 
     // render completely. Not sure who's bug this is
     $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function(e) {
         if ($(this).attr('id') === "tabFind") {
-            GoogleMapsIntegration.forceResizeMap();
+            if (!mapInitialized) {
+                GoogleMapsIntegration.forceResizeMap();
+                mapInitialized = true;
+            }
         }
     });
 
-    function initMap(){
+    function initMap() {
         GoogleMapsIntegration.initMap();
     }
-
     </script>
 </head>
 
