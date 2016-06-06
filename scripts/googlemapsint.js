@@ -56,7 +56,7 @@ var GoogleMapsIntegration = (function() {
                 lat: 48.678147,
                 lng: -80.809743
             },
-            zoom: 16
+            zoom: 12
         });
 
         directionRenderer.setMap(map);
@@ -124,8 +124,11 @@ var GoogleMapsIntegration = (function() {
         },
 
         forceResizeMap: function() {
-            google.maps.event.trigger(map, 'resize');
-            map.setZoom(map.getZoom());
+            _createMap();
+            // var center = map.getCenter();
+            // map.setCenter(center);
+            // google.maps.event.trigger(map, 'resize');
+            // map.setZoom(map.getZoom());
         },
 
         calculateAndDisplayRoute: function() {
