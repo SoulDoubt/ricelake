@@ -18,7 +18,7 @@
     });
 
     function getCampsites() {
-        var req = helpers.ajaxGet('test_php.php');
+        var req = helpers.ajaxGet('./php/campsites.php');
         req.done(function(results, status, xhr) {
             var fullService = helpers.findByPropertyValue(results, "Name", "Full Service");
             if (fullService !== undefined) {
@@ -90,7 +90,7 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 hidden-xs">
+            <div class="col-md-4 hidden-xs hidden-sm">
                 <img src="./images/logo.png">
             </div>
             <div class="col-md-8">

@@ -23,8 +23,8 @@ function doTWN() {
         var s = d.getElementsByTagName('script')[0];
 
         var py = d.createElement('link');
-        py.rel = 'stylesheet'
-        py.href = ('https:' == d.location.protocol ? 'https:' : 'http:') + '//widget.twnmm.com/styles/btn/styles.css'
+        py.rel = 'stylesheet';
+        py.href = ('https:' == d.location.protocol ? 'https:' : 'http:') + '//widget.twnmm.com/styles/btn/styles.css';
 
         s.parentNode.insertBefore(px, s);
         s.parentNode.insertBefore(py, s);
@@ -36,7 +36,7 @@ var helpers = (function() {
 
         ajaxGet: function(url) {
             return $.ajax({
-                url: './php/campsites.php',
+                url: url,
                 data: {},
                 dataType: 'json',
                 cache: false,
