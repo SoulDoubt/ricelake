@@ -36,7 +36,7 @@ var helpers = (function() {
 
         ajaxGet: function(url) {
             return $.ajax({
-                url: 'test_php.php',
+                url: './php/campsites.php',
                 data: {},
                 dataType: 'json',
                 cache: false,

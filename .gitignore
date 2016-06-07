@@ -1,3 +1,4 @@
 *.sublime-*
 test_php.php
 GoogleAPI Key.txt
+dbinfo.php

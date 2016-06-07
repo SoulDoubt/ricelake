@@ -12,12 +12,11 @@
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <script>
-    
     $(document).on('ready', function() {
         getCampsites();
     });
 
-    function ajaxGet(url){
+    function ajaxGet(url) {
         return $.ajax({
             url: 'test_php.php',
             data: {},
@@ -28,15 +27,22 @@
         });
     }
 
-    function getCampsites(){
+    function getCampsites() {
         var req = ajaxGet('test_php.php');
-        req.done(function(results, status, xhr){
+        req.done(function(results, status, xhr) {
             $("#datahere").text(results);
         });
-        req.error(function(err){
+        req.error(function(err) {
             $("#datahere").text(err);
         });
     }
+
+    function buildCampsiteTable(results){
+        var table = $("<table/>").addClass("table table-striped");
+        var tr;
+    }
+
+    function 
     </script>
 </head>
 
