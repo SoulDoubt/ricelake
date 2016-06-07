@@ -14,7 +14,36 @@
     <script>
     $(document).on('ready', function() {
         fillYearSpans();
+        getCampsites();
     });
+
+    function getCampsites() {
+        var req = helpers.ajaxGet('test_php.php');
+        req.done(function(results, status, xhr) {
+            var fullService = helpers.findByPropertyValue(results, "Name", "Full Service");
+            if (fullService !== undefined) {
+                $("[data-bind='FullService|Seasonal']").text(helpers.currency(fullService.SeasonalRate));
+                $("[data-bind='FullService|Monthly']").text(helpers.currency(fullService.MonthlyRate));
+                $("[data-bind='FullService|Weekly']").text(helpers.currency(fullService.WeeklyRate));
+                $("[data-bind='FullService|Daily']").text(helpers.currency(fullService.DailyRate));
+                $("[data-bind='FullService|Winter']").text(helpers.currency(fullService.WinterStorage));
+
+            }
+            var partialService = helpers.findByPropertyValue(results, "Name", "Partial Service");
+            if (partialService !== undefined) {
+                $("[data-bind='PartialService|Seasonal']").text(helpers.currency(partialService.SeasonalRate));
+                $("[data-bind='PartialService|Monthly']").text(helpers.currency(partialService.MonthlyRate));
+                $("[data-bind='PartialService|Weekly']").text(helpers.currency(partialService.WeeklyRate));
+                $("[data-bind='PartialService|Daily']").text(helpers.currency(partialService.DailyRate));
+                $("[data-bind='PartialService|Winter']").text(helpers.currency(partialService.WinterStorage));
+            }
+
+        });
+        req.error(function(err) {
+            $("#datahere").text(err);
+        });
+    }
+
     </script>
 </head>
 
@@ -88,28 +117,28 @@
                             </tr>
                             <tr>
                                 <td>Seasonal</td>
-                                <td class="text-right">$2000.00</td>
-                                <td class="text-right">$2000.00</td>
+                                <td class="text-right" data-bind="FullService|Seasonal"></td>
+                                <td class="text-right" data-bind="PartialService|Seasonal"></td>
                             </tr>
                             <tr>
                                 <td>Monthly</td>
-                                <td class="text-right">$650.00</td>
-                                <td class="text-right">$600.00</td>
+                                <td class="text-right" data-bind="FullService|Monthly"></td>
+                                <td class="text-right" data-bind="PartialService|Monthly"></td>
                             </tr>
                             <tr>
                                 <td>Weekly</td>
-                                <td class="text-right">$250.00</td>
-                                <td class="text-right">$200.00</td>
+                                <td class="text-right" data-bind="FullService|Weekly"></td>
+                                <td class="text-right" data-bind="PartialService|Weekly"></td>
                             </tr>
                             <tr>
                                 <td>Daily</td>
-                                <td class="text-right">$38.00</td>
-                                <td class="text-right">$38.00</td>
+                                <td class="text-right" data-bind="FullService|Daily"></td>
+                                <td class="text-right" data-bind="PartialService|Daily"></td>
                             </tr>
                             <tr>
                                 <td>Winter Storage</td>
-                                <td class="text-right">$125.00</td>
-                                <td class="text-right">$125.00</td>
+                                <td class="text-right" data-bind="FullService|Winter"></td>
+                                <td class="text-right" data-bind="PartialService|Winter"></td>
                             </tr>
                         </table>
                     </div>
@@ -131,7 +160,8 @@
                         </table>
                     </div>
                 </div>
-                <p>Winter storage will be credited toward the next season Extra fridge/freezer an extra $100.00 for the season<br/> **Plus all applicable taxes.</p>
+                <p>Winter storage will be credited toward the next season Extra fridge/freezer an extra $100.00 for the season
+                    <br/> **Plus all applicable taxes.</p>
             </div>
         </div>
     </div>

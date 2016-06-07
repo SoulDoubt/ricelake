@@ -1,5 +1,3 @@
-
-
 function fillYearSpans() {
     var dt = new Date();
     var year = dt.getFullYear();
@@ -32,3 +30,36 @@ function doTWN() {
         s.parentNode.insertBefore(py, s);
     })(document, 'script', 'plmxbtn');
 }
+
+var helpers = (function() {
+    return {
+
+        ajaxGet: function(url) {
+            return $.ajax({
+                url: 'test_php.php',
+                data: {},
+                dataType: 'json',
+                cache: false,
+                async: true,
+                type: "GET"
+            });
+        },
+
+        currency: function(val) {
+            return "$" + Number(val).toFixed(2);
+        },
+
+        findByPropertyValue: function(objs, prop, value) {
+            if ($.isArray(objs)) {
+                var result = objs.filter(function(obj) {
+                    return obj[prop] === value;
+                });
+                if (result.length > 0) {
+                    return result[0];
+                }
+            } else {
+                return null;
+            }
+        }
+    };
+}());

@@ -14,10 +14,12 @@
     <link href="./styles/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <script>
-    var mapInitialized = false;
+    
     // because we've placed the map inside a bootstrap tab, we need to 
     // force a resize event when the tab is shown for the map to 
     // render completely. Not sure who's bug this is
+    var mapInitialized = false;
+    
     $(document).on('shown.bs.tab', 'a[data-toggle="tab"]', function(e) {
         if ($(this).attr('id') === "tabFind") {
             if (!mapInitialized) {
