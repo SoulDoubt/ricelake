@@ -41,7 +41,7 @@ var helpers = (function() {
                 dataType: 'text json',
                 cache: false,
                 async: true,
-                type: "POST"
+                type: "GET"
             });
         },
 
