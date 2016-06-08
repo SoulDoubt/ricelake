@@ -18,7 +18,7 @@
     });
 
     function getCampsites() {
-        var req = helpers.ajaxGet('./php/campsites.php');
+        var req = helpers.ajaxGet('php/campsites.php');
         req.done(function(results, status, xhr) {
             var fullService = helpers.findByPropertyValue(results, "Name", "Full Service");
             if (fullService !== undefined) {
@@ -39,7 +39,7 @@
             }
 
         });
-        req.error(function(err) {
+        req.fail(function(err) {
             $("#datahere").text(err);
         });
     }

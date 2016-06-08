@@ -38,10 +38,10 @@ var helpers = (function() {
             return $.ajax({
                 url: url,
                 data: {},
-                dataType: 'json',
+                dataType: 'text json',
                 cache: false,
                 async: true,
-                type: "GET"
+                type: "POST"
             });
         },
 
